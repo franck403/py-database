@@ -1,15 +1,11 @@
 import csv
 import os
-import hashlib
-import string
-import random
-import json
 
-def __init__():
-    print("database ready")
-
-class action(dbname):
-    db = dbname + ".db"
+class action():
+    db = "main"
+    def __init__(dbname,self):
+        print(dbname)
+        db = dbname + ".db"
     def add(name,email,password):
         list = open(self.db,"r").read()
         listnew = open(self.db,"w")
