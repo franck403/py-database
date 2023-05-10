@@ -1,1 +1,3 @@
 import databasepy
+
+db = databasepy()
