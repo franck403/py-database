@@ -2,4 +2,5 @@ import databasepy
 
 db = databasepy
 
-db.action.add(db.action("main"),"test","text")
+db.danger.newdb("test")
+db.action.add(db.action("test"),"test","text")
