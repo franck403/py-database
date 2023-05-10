@@ -2,5 +2,4 @@ import databasepy
 
 db = databasepy
 
-db.action("main")
-db.action.add("test.py")
+db.action.add(db.action("main"),"test","text")

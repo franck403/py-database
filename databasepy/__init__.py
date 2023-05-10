@@ -1,12 +1,12 @@
 import csv
 import os
+import pathlib
 
 class action():
     db = "main"
-    def __init__(dbname,self):
-        print(dbname)
-        db = dbname + ".db"
-    def add(name,email,password):
+    def __init__(self,dbname):
+        self.db = str(pathlib.Path(__file__).parent.resolve()) + "/" + dbname + ".db"
+    def add(self,name,data):
         list = open(self.db,"r").read()
         listnew = open(self.db,"w")
         listnew.write(list + name + "," + data)  
