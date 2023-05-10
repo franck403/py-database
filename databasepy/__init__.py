@@ -9,7 +9,7 @@ class action():
     def add(self,name,data):
         list = open(self.db,"r").read()
         listnew = open(self.db,"w")
-        listnew.write(list + name + "," + data)  
+        listnew.write(list + name + "," + data + "\n")  
         return "finsh"
 
 class danger():
