@@ -14,9 +14,9 @@ class action():
 
 class danger():
     def newdb(name):
-        open(name + ".db","w").write("name,data\n")
+        open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("name,data\n")
     def resetdb(name):
-        open(name + ".db","w").write("")
+        open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("")
 
 
 class database():
