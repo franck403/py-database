@@ -38,7 +38,7 @@ class database():
         return "no"
   
   def all():
-    with open('user.txt', mode='r') as csv_file:
+    with open('user.geoloup.db', mode='r') as csv_file:
       csv_reader = csv.DictReader(csv_file)
       line_count = 0
       for row in csv_reader:
@@ -49,7 +49,7 @@ class database():
           line_count += 1
       print(f'Processed {line_count} lines.')
   def getuser(geoloup):
-    with open('user.txt', mode='r') as csv_file:
+    with open('user.geoloup.db', mode='r') as csv_file:
       csv_reader = csv.DictReader(csv_file)
       for row in csv_reader:
         if row["geoloup"] == geoloup:
@@ -57,8 +57,7 @@ class database():
             "email":row["email"],
             "name":row["name"]
           }
-          final = json.dumps(js)
- 
+          final = str(js)
     return final
 
 
@@ -66,10 +65,10 @@ class user():
   salt = "9vy3v7vr8yg3ygrgnny7rueriub34newiubgerilbherbl7erin7bte4nh8ifbtret87bver7"
   def __init__(self,set_salt_key):
     self.salt = set_salt_key
-  def create_user(name,passwrod):
+  def register_user(name,passwrod):
     salt = self.salt
     hash = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
-    with open('user.txt', mode='r') as csv_file:
+    with open('user.geoloup.db', mode='r') as csv_file:
       csv_reader = csv.DictReader(csv_file)
       hash = hash
       for row in csv_reader:
@@ -80,7 +79,18 @@ class user():
           size = random.randint(100,10000)
           geoloup = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(size))
           end = "yes"
-          list = open("user.txt","r").read()
-          listnew = open("user.txt","w")
+          list = open("user.geoloup.db","r").read()
+          listnew = open("user.geoloup.db","w")
           listnew.write(list + "\n" + "geoloup_" + geoloup + "," + email + "," + name +  "," + hash)  
     return end
+  def login_user(geoloup):
+    with open('user.geoloup.db', mode='r') as csv_file:
+      csv_reader = csv.DictReader(csv_file)
+      for row in csv_reader:
+        if row["geoloup"] == geoloup:
+          js = {
+            "email":row["email"],
+            "name":row["name"]
+          }
+          final = str(js)
+    return final
