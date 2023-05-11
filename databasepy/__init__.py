@@ -1,6 +1,7 @@
 import csv
 import os
 import pathlib
+import hashlib
 
 class action():
     db = "main"
@@ -59,3 +60,27 @@ class database():
           final = json.dumps(js)
  
     return final
+
+
+class user():
+  salt = "9vy3v7vr8yg3ygrgnny7rueriub34newiubgerilbherbl7erin7bte4nh8ifbtret87bver7"
+  def __init__(self,set_salt_key):
+    self.salt = set_salt_key
+  def create_user(name,passwrod):
+    salt = self.salt
+    hash = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
+    with open('user.txt', mode='r') as csv_file:
+      csv_reader = csv.DictReader(csv_file)
+      hash = hash
+      for row in csv_reader:
+        email2 = row["email"]
+        if email2 == email:
+          end = "no"
+        else:
+          size = random.randint(100,10000)
+          geoloup = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(size))
+          end = "yes"
+          list = open("user.txt","r").read()
+          listnew = open("user.txt","w")
+          listnew.write(list + "\n" + "geoloup_" + geoloup + "," + email + "," + name +  "," + hash)  
+    return end
