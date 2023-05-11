@@ -100,5 +100,26 @@ class user():
     return final
 
 
+
+class NewThreadedTask(threading.Thread):
+  def __init__(self):
+    super(NewThreadedTask, self).__init__()
+
 class server():
-  import flask
+  from flask import Flask,request
+  import asyncio
+  import threading
+  app = Flask('app')
+  cors = CORS(app)
+  app.config['CORS_HEADERS'] = 'Content-Type'
+  @app.route('/dataqbase/get')
+  def get():
+    dbname = request.args.get('dbname')
+    name = request.args.get('name')
+    action.get(db.action(dbname),name)
+
+  async def main():
+    await self.app.run(port="443")
+  def run(self):
+    asyncio.run(main())
+ 
