@@ -14,18 +14,17 @@ class action():
         listnew = open(self.db,"w")
         listnew.write(list + name + "," + data + "\n")  
         return "finsh"
-  def get(self,name):
-    with open(self.db, mode='r') as csv_file:
-      csv_reader = csv.DictReader(csv_file)
-      for row in csv_reader:
-        if row["name"] == name:
-          js = {
-            "data":row["data"],
-            "name":row["name"]
-          }
-          final = str(js)
-
-    return final
+    def get(self,name):
+      with open(self.db, mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+          if row["name"] == name:
+            js = {
+              "data":row["data"],
+              "name":row["name"]
+            }
+            final = str(js)
+      return final
 
 class danger():
     def newdb(name):
@@ -112,12 +111,8 @@ class user():
     return final
 
 
-
-class NewThreadedTask(threading.Thread):
-  def __init__(self):
-    super(NewThreadedTask, self).__init__()
-
 class server():
+  from flask_cors import CORS, cross_origin
   from flask import Flask,request
   import asyncio
   import threading
@@ -130,10 +125,10 @@ class server():
     name = request.args.get('name')
     action.get(db.action(dbname),name)
 
-  async def main():
+  async def main(self):
     runner = self.app.run(port="443")
     asyncio.create_task(runner)
-    
+
   def run(self):
-    asyncio.run(main())
+    asyncio.run(server.main(self))
  
