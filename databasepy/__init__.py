@@ -14,6 +14,18 @@ class action():
         listnew = open(self.db,"w")
         listnew.write(list + name + "," + data + "\n")  
         return "finsh"
+  def get(self,name):
+    with open(self.db, mode='r') as csv_file:
+      csv_reader = csv.DictReader(csv_file)
+      for row in csv_reader:
+        if row["name"] == name:
+          js = {
+            "data":row["data"],
+            "name":row["name"]
+          }
+          final = str(js)
+
+    return final
 
 class danger():
     def newdb(name):
