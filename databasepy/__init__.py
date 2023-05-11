@@ -2,6 +2,7 @@ import csv
 import os
 import pathlib
 import hashlib
+import random
 
 class action():
     db = "main"
@@ -37,7 +38,7 @@ class database():
       except:
         return "no"
   
-  def all():
+  def all(self):
     with open('user.geoloup.db', mode='r') as csv_file:
       csv_reader = csv.DictReader(csv_file)
       line_count = 0
