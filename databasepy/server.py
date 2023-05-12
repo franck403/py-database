@@ -6,20 +6,20 @@ import threading
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
-@app.route('/dataqbase/get')
+@app.route('/database/get')
 def get():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
     return databasepy.action.get(databasepy.action(dbname),name)
 
-@app.route('/dataqbase/add')
+@app.route('/database/add')
 def adddata():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
     name = request.args.get('content')
     return databasepy.action.add(databasepy.action(dbname),name)
 
-@app.route('/dataqbase/get')
+@app.route('/database/replace')
 def replacedata():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
