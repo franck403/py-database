@@ -19,7 +19,8 @@ class action():
         csv_reader = csv.DictReader(csv_file)
         final = ""
         for row in csv_reader:
-          final = row
+          if row['name'] == name:
+            final = row
       return final
     def all(self):
       with open(self.db, mode='r') as csv_file:
