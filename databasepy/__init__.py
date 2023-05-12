@@ -43,9 +43,14 @@ class danger():
     open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("")
 
 
-class database():
-  def check(email,password):
-    salt = os.environ['salt']
+
+class user():
+  salt = "9vy3v7vr8yg3ygrgnny7rueriub34newiubgerilbherbl7erin7bte4nh8ifbtret87bver7"
+  geoloup = "default user name"
+  def __init__(self,set_salt_key):
+    self.salt = set_salt_key
+  def check(self,email,password):
+    salt = self.slat
     hash = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
     with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + 'user.geoloup.txt', mode='r') as csv_file:
       csv_reader = csv.DictReader(csv_file)
@@ -59,36 +64,6 @@ class database():
         return final
       except:
         return "no"
-  
-  def all(self):
-    with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + 'user.geoloup.db', mode='r') as csv_file:
-      csv_reader = csv.DictReader(csv_file)
-      line_count = 0
-      for row in csv_reader:
-          if line_count == 0:
-              print(f'Column names are {", ".join(row)}')
-              line_count += 1
-          print(f'\t{row["email"]} works in the {row["password"]}')
-          line_count += 1
-      print(f'Processed {line_count} lines.')
-  def getuser(geoloup):
-    with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + 'user.geoloup.db', mode='r') as csv_file:
-      csv_reader = csv.DictReader(csv_file)
-      for row in csv_reader:
-        if row["geoloup"] == geoloup:
-          js = {
-            "email":row["email"],
-            "name":row["name"]
-          }
-          final = str(js)
-    return final
-
-
-class user():
-  salt = "9vy3v7vr8yg3ygrgnny7rueriub34newiubgerilbherbl7erin7bte4nh8ifbtret87bver7"
-  geoloup = "default user name"
-  def __init__(self,set_salt_key):
-    self.salt = set_salt_key
   def register_user(self,name,password):
     salt = self.salt
     hash = hashlib.sha512(password.encode('utf-8') + salt.encode('utf-8')).hexdigest()
