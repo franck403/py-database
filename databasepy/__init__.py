@@ -17,13 +17,9 @@ class action():
     def get(self,name):
       with open(self.db, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
+        final = ""
         for row in csv_reader:
-          if row["name"] == name:
-            js = {
-              "data":row["data"],
-              "name":row["name"]
-            }
-            final = str(js)
+          final = row
       return final
     def all(self):
       with open(self.db, mode='r') as csv_file:
