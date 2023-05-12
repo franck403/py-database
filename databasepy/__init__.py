@@ -26,7 +26,7 @@ class action():
             final = str(js)
       return final
     def all(self):
-      with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + 'user.geoloup.db', mode='r') as csv_file:
+      with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + self.db, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         line_count = 0
         alldatabase = []
