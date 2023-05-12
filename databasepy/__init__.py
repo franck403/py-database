@@ -32,8 +32,8 @@ class action():
         alldatabase = []
         for row in csv_reader:
           line_count += 1
-          alldatabase.append(row)
-        print(f'Processed {line_count} lines.')
+          alldatabase.append(row["name"])
+          alldatabase.append(row["data"])
       return alldatabase
 
 class danger():
