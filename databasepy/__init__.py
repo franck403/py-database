@@ -32,13 +32,30 @@ class action():
           alldatabase.append(row["name"])
           alldatabase.append(row["data"])
       return alldatabase
-    def replace(self):
+    def replace(self,name,data):
+      final = "error this not exisit"
       with open(self.db, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         line_count = 0
+        line_modify = line_count
         for row in csv_reader:
-          line_count += 1
-      return alldatabase
+          if row['name'] != name:
+            line_count =  line_count + 1
+          else:
+            line_modify = line_count
+      with open(self.db, 'r', encoding='utf-8') as file:
+          datam = file.readlines()
+      if line_modify == 0:
+        datam[line_modify] = name + "," + data + "\n"
+        with open(self.db, 'w', encoding='utf-8') as file:
+            file.writelines(datam)
+        with open(self.db, mode='r') as csv_file:
+          csv_reader = csv.DictReader(csv_file)
+          for row in csv_reader:
+            if row['name'] == name:
+              final = row
+      return final
+
 
 class danger():
   def newdb(name):
