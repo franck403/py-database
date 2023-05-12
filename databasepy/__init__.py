@@ -46,7 +46,7 @@ class action():
       with open(self.db, 'r', encoding='utf-8') as file:
           datam = file.readlines()
       if line_modify == 0:
-        datam[line_modify] = name + "," + data + "\n"
+        datam[line_modify - 1] = name + "," + data + "\n"
         with open(self.db, 'w', encoding='utf-8') as file:
             file.writelines(datam)
         with open(self.db, mode='r') as csv_file:
