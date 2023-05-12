@@ -34,6 +34,7 @@ class action():
             line_count += 1
             alldatabase.append(row)
         print(f'Processed {line_count} lines.')
+      return alldatabase
 
 class danger():
     def newdb(name):
