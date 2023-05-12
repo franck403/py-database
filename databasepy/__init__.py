@@ -26,13 +26,13 @@ class action():
             final = str(js)
       return final
     def all(self):
-      with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + self.db, mode='r') as csv_file:
+      with open(self.db, mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         line_count = 0
         alldatabase = []
         for row in csv_reader:
-            line_count += 1
-            alldatabase.append(row)
+          line_count += 1
+          alldatabase.append(row)
         print(f'Processed {line_count} lines.')
       return alldatabase
 
