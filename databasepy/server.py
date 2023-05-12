@@ -16,15 +16,17 @@ def get():
 def adddata():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
-    name = request.args.get('content')
-    return databasepy.action.add(databasepy.action(dbname),name)
+    data = request.args.get('content')
+    databasepy.action.add(databasepy.action(dbname),name,data)
+    return databasepy.action.get(databasepy.action(dbname),name)
 
 @app.route('/database/replace')
 def replacedata():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
-    name = request.args.get('content')
-    return databasepy.action.replace(databasepy.action(dbname),name)
+    data = request.args.get('content')
+    databasepy.action.replace(databasepy.action(dbname),name,data)
+    return databasepy.action.get(databasepy.action(dbname),name)
 
 @app.route('/')
 def home():
