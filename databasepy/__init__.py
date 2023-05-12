@@ -101,17 +101,21 @@ class server():
   from flask import Flask,request
   import asyncio
   import threading
-  app = Flask('app')
+  app = Flask(__name__)
   cors = CORS(app)
   app.config['CORS_HEADERS'] = 'Content-Type'
   @app.route('/dataqbase/get')
   def get():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
-    action.get(db.action(dbname),name)
+    return action.get(db.action(dbname),name)
+
+  @app.route('/')
+  def home():
+    return "py-database api"
 
   async def main(self):
-    runner = self.app.run(port=443)
+    runner = self.app.run()
     asyncio.create_task(runner)
 
   def run(self):
