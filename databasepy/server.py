@@ -28,6 +28,12 @@ def replacedata():
     databasepy.action.replace(databasepy.action(dbname),name,data)
     return databasepy.action.get(databasepy.action(dbname),name)
 
+@app.route('/database/all')
+def all():
+    dbname = request.args.get('dbname')
+    name = request.args.get('name')
+    return databasepy.action.all(databasepy.action(dbname),name)
+
 @app.route('/')
 def home():
     return "py-database api"
