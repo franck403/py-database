@@ -12,6 +12,20 @@ def get():
     name = request.args.get('name')
     return databasepy.action.get(databasepy.action(dbname),name)
 
+@app.route('/dataqbase/add')
+def adddata():
+    dbname = request.args.get('dbname')
+    name = request.args.get('name')
+    name = request.args.get('content')
+    return databasepy.action.add(databasepy.action(dbname),name)
+
+@app.route('/dataqbase/get')
+def replacedata():
+    dbname = request.args.get('dbname')
+    name = request.args.get('name')
+    name = request.args.get('content')
+    return databasepy.action.replace(databasepy.action(dbname),name)
+
 @app.route('/')
 def home():
     return "py-database api"
