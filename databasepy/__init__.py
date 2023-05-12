@@ -25,6 +25,15 @@ class action():
             }
             final = str(js)
       return final
+    def all(self):
+      with open(str(pathlib.Path(__file__).parent.resolve()) + "/" + 'user.geoloup.db', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        line_count = 0
+        alldatabase = []
+        for row in csv_reader:
+            line_count += 1
+            alldatabase.append(row)
+        print(f'Processed {line_count} lines.')
 
 class danger():
     def newdb(name):
@@ -130,5 +139,6 @@ class server():
     asyncio.create_task(runner)
 
   def run(self):
+    import asyncio
     asyncio.run(server.main(self))
  
