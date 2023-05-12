@@ -111,7 +111,7 @@ class server():
     action.get(db.action(dbname),name)
 
   async def main(self):
-    runner = self.app.run(port="443")
+    runner = self.app.run(host='0.0.0.0', port=443)
     asyncio.create_task(runner)
 
   def run(self):
