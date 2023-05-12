@@ -45,6 +45,7 @@ class action():
             line_modify = line_count
       with open(self.db, 'r', encoding='utf-8') as file:
           datam = file.readlines()
+          print(datam)
       if line_modify == 0:
         datam[line_modify - 1] = name + "," + data + "\n"
         with open(self.db, 'w', encoding='utf-8') as file:
