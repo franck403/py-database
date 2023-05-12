@@ -37,10 +37,10 @@ class action():
       return alldatabase
 
 class danger():
-    def newdb(name):
-        open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("name,data\n")
-    def resetdb(name):
-        open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("")
+  def newdb(name):
+    open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("name,data\n")
+  def resetdb(name):
+    open(str(pathlib.Path(__file__).parent.resolve()) + "/" + name + ".db","w").write("")
 
 
 class database():
