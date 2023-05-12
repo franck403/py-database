@@ -10,7 +10,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def get():
     dbname = request.args.get('dbname')
     name = request.args.get('name')
-    return database.action.get(db.action(dbname),name)
+    return databasepy.action.get(databasepy.action(dbname),name)
 
 @app.route('/')
 def home():
@@ -22,4 +22,4 @@ async def main():
 
 def run():
     import asyncio
-    asyncio.run(main(self))
+    asyncio.run(main())
