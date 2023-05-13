@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
-Name: py-database-gilaxy04
+Name: pydatabase-gilaxy04
 Version: 0.0.1
 Summary: database in python made simple
 Author: Geoloup Team
 Author-email: geoloupo team <franckiebbb@gmail.com>
-Project-URL: Homepage, https://github.com/franck403/py-database
-Project-URL: Bug Tracker, https://github.com/franck403/py-database/issues
+Project-URL: Homepage, https://github.com/franck403/pydatabase
+Project-URL: Bug Tracker, https://github.com/franck403/pydatabase/issues
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent

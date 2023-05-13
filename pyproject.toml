@@ -1,5 +1,5 @@
 [project]
-name = "py-database_gilaxy04"
+name = "pydatabase_gilaxy04"
 version = "0.0.1"
 authors = [
   { name="geoloupo team", email="franckiebbb@gmail.com" },
@@ -14,5 +14,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/franck403/py-database"
-"Bug Tracker" = "https://github.com/franck403/py-database/issues"
+"Homepage" = "https://github.com/franck403/pydatabase"
+"Bug Tracker" = "https://github.com/franck403/pydatabase/issues"
