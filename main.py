@@ -1,7 +1,7 @@
-import pydatabase
-from pydatabase import server
+import py_database
+from py_database import server
 
-db = pydatabase
+db = py_database
 
 db.danger.newdb("test")
 action = db.action("test")

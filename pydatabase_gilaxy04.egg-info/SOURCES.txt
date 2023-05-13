@@ -1,7 +1,7 @@
 pyproject.toml
 setup.py
-pydatabase/__init__.py
-pydatabase/server.py
+py_database/__init__.py
+py_database/server.py
 py_database_gilaxy04.egg-info/PKG-INFO
 py_database_gilaxy04.egg-info/SOURCES.txt
 py_database_gilaxy04.egg-info/dependency_links.txt
